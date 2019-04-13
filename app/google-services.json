@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "220032792886",
+    "firebase_url": "https://tubonge-405ca.firebaseio.com",
+    "project_id": "tubonge-405ca",
+    "storage_bucket": "tubonge-405ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220032792886:android:dc795a0657c6d131",
+        "android_client_info": {
+          "package_name": "com.joe.tubonge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220032792886-ejjgjae3o0lrha1r1530utab5rapv10k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH9osd01UrUEgajMx9-GQ4J0n7S3mDvQE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220032792886-ejjgjae3o0lrha1r1530utab5rapv10k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
