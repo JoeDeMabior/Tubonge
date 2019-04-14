@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Tubonge</string>
-    <string name="title_home">Home</string>
     <string name="people">People</string>
     <string name="my_account">My Account</string>
     <string name="image_view">Image View</string>
     <string name="continue_amp_sign_in"><![CDATA[Continue & Sign in]]></string>
+    <string name="profile_pic">Profile Pic</string>
+    <string name="name">Name</string>
+    <string name="bio">Bio</string>
+    <string name="save">Save</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

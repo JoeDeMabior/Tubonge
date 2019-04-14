@@ -29,7 +29,7 @@ object FirestoreUtil {
         val userFieldMap = mutableMapOf<String, Any>()
         if (name.isNotBlank()) userFieldMap["name"] = name
         if (bio.isNotBlank()) userFieldMap["bio"] = bio
-        if (profilePic != null) userFieldMap["profilePic"] = profilePic
+        if (profilePic != null) userFieldMap["profilePicPath"] = profilePic
         currentUserDocRef.update(userFieldMap)
     }
 

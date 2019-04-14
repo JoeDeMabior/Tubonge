@@ -1,8 +1,9 @@
 package com.joe.tubonge
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.joe.tubonge.fragment.MyAccountFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -18,11 +19,18 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_my_account -> {
-                    // TODO: Show My Account Fragment
+                    replaceFragment(MyAccountFragment())
                     true
                 }
                 else -> false
             }
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_layout, fragment)
+            commit()
         }
     }
 }
