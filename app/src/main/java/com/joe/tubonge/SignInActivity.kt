@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
+import com.joe.tubonge.utils.FirestoreUtil
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import org.jetbrains.anko.clearTask
 import org.jetbrains.anko.design.longSnackbar
@@ -39,19 +40,19 @@ class SignInActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 constraint_layout.longSnackbar("Setting up your account...")
                 progressBar.visibility = View.VISIBLE
-                // TODO: Initialize current user in Firestore
-                startActivity(intentFor<MainActivity>().newTask().clearTask())
+                FirestoreUtil.initCurrentUser {
+                    startActivity(intentFor<MainActivity>().newTask().clearTask())
+                    progressBar.visibility = View.GONE
+                }
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 if (response == null) return
 
                 when (response.error?.errorCode) {
                     ErrorCodes.NO_NETWORK -> {
                         constraint_layout.longSnackbar("No network")
-                        progressBar.visibility = View.GONE
                     }
                     ErrorCodes.UNKNOWN_ERROR -> {
                         constraint_layout.longSnackbar("Unknown error")
-                        progressBar.visibility = View.GONE
                     }
                 }
             }
