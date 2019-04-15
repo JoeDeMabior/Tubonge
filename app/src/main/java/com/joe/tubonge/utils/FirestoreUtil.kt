@@ -7,6 +7,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.joe.tubonge.models.*
+import com.joe.tubonge.recyclerview.item.ImageMessageItem
 import com.joe.tubonge.recyclerview.item.PersonItem
 import com.joe.tubonge.recyclerview.item.TextMessageItem
 import com.xwray.groupie.kotlinandroidextensions.Item
@@ -58,7 +59,7 @@ object FirestoreUtil {
             }
 
             val items = mutableListOf<Item>()
-            querySnapshot?.documents?.forEach {
+            querySnapshot!!.documents.forEach {
                 if (it.id != FirebaseAuth.getInstance().currentUser?.uid)
                     items.add(
                         PersonItem(
@@ -113,11 +114,12 @@ object FirestoreUtil {
                 }
 
                 val items = mutableListOf<Item>()
-                querySnapshot?.documents?.forEach {
+                querySnapshot!!.documents.forEach {
                     if (it["type"] == MessageType.TEXT)
                         items.add(TextMessageItem(it.toObject(TextMessage::class.java)!!, context))
                     else
-                        TODO("Add image message")
+                        items.add(ImageMessageItem(it.toObject(ImageMessage::class.java)!!, context))
+                    return@forEach
                 }
                 onListen(items)
             }
