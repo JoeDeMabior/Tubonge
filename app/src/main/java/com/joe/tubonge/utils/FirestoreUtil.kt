@@ -6,10 +6,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
-import com.joe.tubonge.models.ChatChannel
-import com.joe.tubonge.models.MessageType
-import com.joe.tubonge.models.TextMessage
-import com.joe.tubonge.models.User
+import com.joe.tubonge.models.*
 import com.joe.tubonge.recyclerview.item.PersonItem
 import com.joe.tubonge.recyclerview.item.TextMessageItem
 import com.xwray.groupie.kotlinandroidextensions.Item
@@ -124,5 +121,9 @@ object FirestoreUtil {
                 }
                 onListen(items)
             }
+    }
+
+    fun sendMessage(message: Message, channelId: String) {
+        chatChannelsCollectionRef.document(channelId).collection("messages").add(message)
     }
 }
