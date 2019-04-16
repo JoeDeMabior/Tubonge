@@ -27,7 +27,9 @@ object FirestoreUtil {
     fun initCurrentUser(onComplete: () -> Unit) {
         currentUserDocRef.get().addOnSuccessListener { documentSnapshot ->
             if (!documentSnapshot.exists()) {
-                val newUser = User(FirebaseAuth.getInstance().currentUser?.displayName ?: "", "", null)
+                val newUser = User(
+                    FirebaseAuth.getInstance().currentUser?.displayName ?: "", "", null, mutableListOf()
+                )
                 currentUserDocRef.set(newUser).addOnSuccessListener {
                     onComplete()
                 }
@@ -128,4 +130,17 @@ object FirestoreUtil {
     fun sendMessage(message: Message, channelId: String) {
         chatChannelsCollectionRef.document(channelId).collection("messages").add(message)
     }
+
+    // Start region FCM
+    fun getFcmRegistrationTokens(onComplete: (tokens: MutableList<String>) -> Unit) {
+        currentUserDocRef.get().addOnSuccessListener {
+            val user = it.toObject(User::class.java)!!
+            onComplete(user.registrationTokens)
+        }
+    }
+
+    fun setFcmRegistrationTokens(registrationTokens: MutableList<String>) {
+        currentUserDocRef.update(mapOf("registrationTokens" to registrationTokens))
+    }
+    // End region FCM
 }
