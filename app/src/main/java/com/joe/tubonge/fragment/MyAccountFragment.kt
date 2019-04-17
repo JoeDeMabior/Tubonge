@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.firebase.ui.auth.AuthUI
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 
 import com.joe.tubonge.R
 import com.joe.tubonge.activity.SignInActivity
@@ -32,6 +33,8 @@ class MyAccountFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_my_account, container, false)
+
+        FirebaseFirestoreSettings.Builder().setPersistenceEnabled(true).build()
 
         view.apply {
             imageView_profile_picture.setOnClickListener {

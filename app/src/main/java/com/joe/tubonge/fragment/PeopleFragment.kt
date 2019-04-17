@@ -57,7 +57,7 @@ class PeopleFragment : Fragment() {
             updateItems()
     }
 
-    private val onItemClick = OnItemClickListener { item, view ->
+    private val onItemClick = OnItemClickListener { item, _ ->
         if (item is PersonItem) {
             startActivity<ChatActivity>(AppConstants.USERNAME to item.person.name, AppConstants.USER_ID to item.userId)
         }
