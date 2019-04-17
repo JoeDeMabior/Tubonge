@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.ListenerRegistration
-import com.joe.tubonge.ChatActivity
+import com.joe.tubonge.activity.ChatActivity
 
 import com.joe.tubonge.R
 import com.joe.tubonge.constants.AppConstants

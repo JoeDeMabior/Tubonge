@@ -1,4 +1,4 @@
-package com.joe.tubonge
+package com.joe.tubonge.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import com.firebase.ui.auth.AuthUI
 
 import com.joe.tubonge.R
-import com.joe.tubonge.SignInActivity
+import com.joe.tubonge.activity.SignInActivity
 import com.joe.tubonge.glide.GlideApp
 import com.joe.tubonge.utils.FirestoreUtil
 import com.joe.tubonge.utils.StorageUtil

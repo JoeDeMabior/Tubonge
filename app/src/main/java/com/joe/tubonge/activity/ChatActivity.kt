@@ -1,4 +1,4 @@
-package com.joe.tubonge
+package com.joe.tubonge.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ListenerRegistration
+import com.joe.tubonge.R
 import com.joe.tubonge.constants.AppConstants
 import com.joe.tubonge.models.ImageMessage
 import com.joe.tubonge.models.TextMessage
@@ -77,7 +78,10 @@ class ChatActivity : AppCompatActivity() {
                     action = Intent.ACTION_GET_CONTENT
                     putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/jpeg", "image/png"))
                 }
-                startActivityForResult(Intent.createChooser(intent, "Select Image"), SELECT_IMAGE_REQUEST)
+                startActivityForResult(
+                    Intent.createChooser(intent, "Select Image"),
+                    SELECT_IMAGE_REQUEST
+                )
             }
         }
     }

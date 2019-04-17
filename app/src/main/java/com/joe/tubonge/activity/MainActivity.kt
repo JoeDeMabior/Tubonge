@@ -1,8 +1,9 @@
-package com.joe.tubonge
+package com.joe.tubonge.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.joe.tubonge.R
 import com.joe.tubonge.fragment.MyAccountFragment
 import com.joe.tubonge.fragment.PeopleFragment
 import kotlinx.android.synthetic.main.activity_main.*
